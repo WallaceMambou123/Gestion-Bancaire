@@ -19,7 +19,7 @@ public class ClientService {
     // Créer un client
     public Client creerClient(String nom, String prenom, String email, String telephone) {
         Client client = new Client();
-        client.setNom(nom);
+        client.setName(nom);
         client.setPrenom(prenom);
         client.setEmail(email);
         client.setTelephone(telephone);

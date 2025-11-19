@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Setter
 @Getter
-@ToString(exclude = {"client", "transaction"})
+@ToString(exclude = {"client", "transactions"})
 public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
