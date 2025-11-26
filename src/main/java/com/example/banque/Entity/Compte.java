@@ -15,11 +15,11 @@ import java.util.List;
 @AllArgsConstructor
 @Setter
 @Getter
-@ToString(exclude = {"client", "transactions"})
+@ToString(exclude = {"clients", "transactions"})
 public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_compte;
+    private Long id;
 
     @Column(nullable = false, length = 34, unique = true, name = "numero_compte")
     private String numeroCompte;

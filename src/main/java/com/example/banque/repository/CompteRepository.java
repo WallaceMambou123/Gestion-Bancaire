@@ -4,9 +4,11 @@ import com.example.banque.Entity.Compte;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CompteRepository extends JpaRepository<Compte, Long> {
 
-    // Exemple de méthode personnalisée que tu peux ajouter plus tard
-    // List<Compte> findByClientId(Long clientId);
+    // Trouve tous les comptes associés à un ID de client donné.
+    List<Compte> findByClientId(Long clientId);
 }

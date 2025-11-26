@@ -6,15 +6,16 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "ClientsBanques")
+@Table(name = "clients")
 @NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
-@ToString(exclude = "comptes")
+@ToString(exclude = "Comptes")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "client_id")
     private Long id;
 
     @Column(nullable = false, length = 100)

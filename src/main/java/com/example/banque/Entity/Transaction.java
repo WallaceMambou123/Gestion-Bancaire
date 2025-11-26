@@ -12,7 +12,7 @@ import java.time.LocalDateTime;   // ← IMPORTANT : LocalDateTime, pas LocalDat
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "compte")  // on garde seulement compte ici
+@ToString(exclude = "comptes")  // on garde seulement compte ici
 public class Transaction {
 
     @Id
