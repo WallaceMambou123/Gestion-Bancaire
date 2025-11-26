@@ -50,15 +50,15 @@ public class TransactionService {
 
         valideMontant(montant);
 
-        // On récupère les deux comptes en une seule fois pour plus d'efficacité
+
         Compte source = getCompte(sourceId);
         Compte destination = getCompte(destinationId);
 
-        // On exécute les opérations
+
         source.debiter(montant);
         destination.crediter(montant);
 
-        // On enregistre les transactions spécifiques au virement
+
         creerTransaction(source, montant, "VIREMENT_EMIS", libelle + " vers compte " + destination.getNumeroCompte());
         creerTransaction(destination, montant, "VIREMENT_RECU", libelle + " depuis compte " + source.getNumeroCompte());
     }
@@ -70,7 +70,7 @@ public class TransactionService {
         return transactionRepository.findByCompteIdOrderByDateTransactionDesc(compteId);
     }
 
-    // Méthodes privées utilitaires
+
     private Compte getCompte(Long compteId) {
         return compteRepository.findById(compteId)
                 .orElseThrow(() -> new EntityNotFoundException("Compte non trouvé : " + compteId));

@@ -15,27 +15,31 @@ import java.util.List;
 @RequestMapping("/api/operations")
 @RequiredArgsConstructor
 public class TransactionController {
+//Souffle du controlleur, troisieme mouvement Transaction
+
 
     private final TransactionService transactionService;
 
-    // 1. Dépôt : Utilise @RequestBody pour une requête POST plus standard
+    // Gestion du depot
     @PostMapping("/depot")
-    @ResponseStatus(HttpStatus.CREATED) // Statut plus approprié pour la création d'une opération
-    public void depot(@RequestBody DepotRequest request) { // Utilise un DTO (Data Transfer Object)
+    @ResponseStatus(HttpStatus.CREATED)
+//    Ouverture de la porte des DTO, technique secrete
+    public void depot(@RequestBody DepotRequest request) {
         transactionService.deposer(request.getCompteId(), request.getMontant(), request.getLibelle());
     }
 
-    // 2. Retrait : Utilise @RequestBody pour une requête POST plus standard
+    // Gestion du retrait
     @PostMapping("/retrait")
     @ResponseStatus(HttpStatus.CREATED)
-    public void retrait(@RequestBody RetraitRequest request) { // Utilise un DTO
+
+    public void retrait(@RequestBody RetraitRequest request) {
         transactionService.retirer(request.getCompteId(), request.getMontant(), request.getLibelle());
     }
 
-    // 3. Virement : Utilise @RequestBody pour une requête POST plus standard
+    // Gestion des virement
     @PostMapping("/virement")
     @ResponseStatus(HttpStatus.CREATED)
-    public void virement(@RequestBody VirementRequest request) { // Utilise un DTO
+    public void virement(@RequestBody VirementRequest request) {
         transactionService.virement(
                 request.getSource(),
                 request.getDestination(),
@@ -44,7 +48,7 @@ public class TransactionController {
         );
     }
 
-    // 4. Relevé : Laisse le GET inchangé (conventionnel et correct)
+//    Historique des technique utiliser pour eveiller l'Axe
     @GetMapping("/releve/{compteId}")
     public List<Transaction> releve(@PathVariable Long compteId) {
         return transactionService.historique(compteId);

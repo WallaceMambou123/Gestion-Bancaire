@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 
 @Data
 public class VirementRequest {
-    private Long source; // Compte source
-    private Long destination; // Compte destination
+    private Long source;
+    private Long destination;
     private BigDecimal montant;
     private String libelle;
 }

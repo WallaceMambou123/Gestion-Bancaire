@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface CompteRepository extends JpaRepository<Compte, Long> {
 
-    // Trouve tous les comptes associés à un ID de client donné.
     List<Compte> findByClientId(Long clientId);
 }

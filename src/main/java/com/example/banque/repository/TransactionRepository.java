@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
-    // Trouve toutes les transactions pour un ID de compte donné, triées par date de transaction décroissante.
     List<Transaction> findByCompteIdOrderByDateTransactionDesc(Long compteId);
 }

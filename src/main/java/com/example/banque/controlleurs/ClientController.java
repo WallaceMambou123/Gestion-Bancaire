@@ -13,10 +13,11 @@ import java.util.List;
 @RequestMapping("/api/clients")
 @RequiredArgsConstructor
 public class ClientController {
+//Souffle du controlleur, premier mouvement Client de la banque
 
     private final ClientService clientService;
 
-    // POST   /api/clients → créer un client
+    // Invocation du client
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Client creer(@RequestBody Client client) {
@@ -28,19 +29,19 @@ public class ClientController {
         );
     }
 
-    // GET    /api/clients → tous les clients
+    // Lister tous les clients
     @GetMapping
     public List<Client> lister() {
         return clientService.listerTousLesClients();
     }
 
-    // GET    /api/clients/5 → un client précis
+    //Retourner un client via id
     @GetMapping("/{id}")
     public Client trouver(@PathVariable Long id) {
         return clientService.trouverParId(id);
     }
 
-    // DELETE /api/clients/5 → supprimer
+    // Suppression via id
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void supprimer(@PathVariable Long id) {
